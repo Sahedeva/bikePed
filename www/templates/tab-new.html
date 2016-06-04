@@ -1,19 +1,20 @@
 <!-- This is the html form for a new user -->
 <ion-view view-title="NewUser">
   <ion-content class="padding">
-    <form action="https://arcane-beach-11863.herokuapp.com/new" method="post">
+    <!--form action="https://arcane-beach-11863.herokuapp.com/new" method="post"-->
+    <form ng-controller="UserCtrl">
       <div class="list">
         <div class="item item-input">
           <span class="input-label">Name:</span>
-          <input type="text" name="name">
+          <input type="text" ng-model="name">
         </div>
         <div class="item item-input">
           <span class="input-label">Email:</span>
-          <input type="text" name="email">
+          <input type="text" ng-model="email">
         </div>
         <div class="item item-input">
           <span class="input-label">Favorite:</span>
-          <select name="favorite">
+          <select ng-model="favorite">
             <option selected value="recw">Recreational Walker</option>
             <option value="recb">Recreational Biker</option>
             <option value="tranu">Transit User</option>
@@ -22,7 +23,9 @@
           </select>
         </div>
         <div class="item item-input">
-          <button class="button button-full button-calm" type="submit">Submit</button>
+          <button ng-enabled="false" class="button button-full button-calm" type="submit" ng-click="newUser()">
+            Submit
+          </button>
         </div>
       </div>
     </form>

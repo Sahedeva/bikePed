@@ -2,21 +2,36 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope) {})
 
+.controller('UserCtrl', function($scope, $http) {
+  $scope.name = '';
+  $scope.email = '';
+  $scope.favorite = 'recw';
+  $scope.newUser = function() {
+    $http.post('/srv/new', {
+      name: $scope.name,
+      email: $scope.email,
+      favorite: $scope.favorite
+    }).success(function(data) {
+      localStorage.setItem("userid", data);
+    })
+  }
+})
+
 .controller('MapCtrl', function($scope, $state, $cordovaGeolocation) {
   var options = {timeout: 10000, enableHighAccuracy: true};
- 
+
   $cordovaGeolocation.getCurrentPosition(options).then(function(position){
- 
+
     var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
- 
+
     var mapOptions = {
       center: latLng,
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
- 
+
     $scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
- 
+
   }, function(error){
     console.log("Could not get location");
   });

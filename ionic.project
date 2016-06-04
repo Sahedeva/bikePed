@@ -1,4 +1,11 @@
 {
   "name": "bikePed",
-  "app_id": "b778052a"
+  "app_id": "b778052a",
+  "proxies": [
+    {
+      "path": "/srv/new",
+      "proxyUrl": "https://arcane-beach-11863.herokuapp.com/new"
+    }
+  ]
+
 }
