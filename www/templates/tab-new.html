@@ -1,21 +1,30 @@
 <!-- This is the html form for a new user -->
 <ion-view view-title="NewUser">
   <ion-content class="padding">
-    <h2>Welcome to Bike Ped Safety</h2>
     <form action="https://arcane-beach-11863.herokuapp.com/new" method="post">
-      Name:<br>
-      <input type="text" name="name"><br>
-      Email:<br>
-      <input type="text" name="email">
-      Favorite:<br>
-      <select name="favorite">
-        <option selected value="recw">Recreational Walker</option>
-        <option value="recb">Recreational Biker</option>
-        <option value="tranu">Transit User</option>
-        <option value="funcw">Functional Walker</option>
-        <option value="funcb">Functional Biker</option>
-      </select>
-      <input type="submit" value="submit">
+      <div class="list">
+        <div class="item item-input">
+          <span class="input-label">Name:</span>
+          <input type="text" name="name">
+        </div>
+        <div class="item item-input">
+          <span class="input-label">Email:</span>
+          <input type="text" name="email">
+        </div>
+        <div class="item item-input">
+          <span class="input-label">Favorite:</span>
+          <select name="favorite">
+            <option selected value="recw">Recreational Walker</option>
+            <option value="recb">Recreational Biker</option>
+            <option value="tranu">Transit User</option>
+            <option value="funcw">Functional Walker</option>
+            <option value="funcb">Functional Biker</option>
+          </select>
+        </div>
+        <div class="item item-input">
+          <button class="button button-full button-calm" type="submit">Submit</button>
+        </div>
+      </div>
     </form>
   </ion-content>
 </ion-view>
